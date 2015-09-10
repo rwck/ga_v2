@@ -1,0 +1,7 @@
+Notes
+
+NOT - if the input is truthey return false if the input is falsey return true
+
+OR - return the first truthy value if both are falsey return the last one
+
+AND - return the first falsey value; if both are truthy, return the last truthy value
