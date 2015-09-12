@@ -51,6 +51,47 @@ function setUpBlack() {
   }
 }
 
+var pieces = {
+  "red": [
+  [0, 0], [0, 2], [0, 4], [0, 6],
+  [1, 1], [1, 3], [1, 5], [1, 7],
+  [2, 0], [2, 2], [2, 4], [2, 6],
+  ]
+  ,
+  "black": [
+  [5, 1], [5, 3], [5, 5], [5, 7],
+  [6, 0], [6, 2], [6, 4], [6, 6],
+  [7, 1], [7, 3], [7, 5], [7, 7],
+  ]
+}
 
+// tests for pieces array
+function testRed() {
+  pieces['red'].map(function(piece){
+    var row = piece[0];
+    var col = piece[1];
+    var test = checkerboard[row][col] === 'R';
+    console.log(test);
+    return test;
+  });
+}
 
+function testBlack() {
+  pieces['black'].map(function(piece){
+    var row = piece[0];
+    var col = piece[1];
+    var test = checkerboard[row][col] === 'B';
+    console.log(test);
+    return test;
+  });
+}
 
+function setUpBoard() {
+  setUpRed();
+  setUpBlack();
+}
+
+function testBoard() {
+  testRed();
+  testBlack();
+}
