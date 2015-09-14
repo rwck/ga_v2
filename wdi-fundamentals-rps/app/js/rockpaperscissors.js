@@ -35,7 +35,7 @@ function getComputerMove(move) {
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
     var move;
-    
+
     return move || randomPlay();
     /* Your Expression */
 }
@@ -48,6 +48,10 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     /* YOUR CODE HERE */
+
+    computerMove = getComputerMove();
+    playerMove = getPlayerMove();
+
     if (computerMove == playerMove) {
         winner = "tie";
     }
@@ -61,11 +65,30 @@ function getWinner(playerMove,computerMove) {
 }
 
 function playToFive() {
-    console.log("Let's play Rock, Paper, Scissors");
+    alert("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
-    return [playerWins, computerWins];
-}
+    while (playerWins < 5 && computerWins < 5) {
+      var result = getWinner();
+      if (result == "player") {
+        playerWins++;
+        alert("You won that round!");
+      }
+      else if (result == "computer") {
+        computerWins++;
+        alert("I won that round, human!");
+      }
+      else alert("That was a tie. Need to play again!");
+    }
 
+    if (playerWins === 5) {
+      alert("You win this time!!!\n" + playerWins + " to " + computerWins + "!");
+    }
+    if (computerWins === 5) {
+      alert("Victory is mine, and sweet it is indeed!!!\n " + computerWins + " to " + playerWins + "!");
+    }
+
+    return [playerWins, computerWins];
+  }
